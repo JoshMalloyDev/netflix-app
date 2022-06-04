@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <title>Save Music App</title>
+  
+    <link rel="stylesheet" href="profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,400;1,200&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h2>Welcome, <%= user.local.email%>! </h2>
+        <a href="/" class="logout">Logout</a>
+    </header>
+
+    <div class="head">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6 hide" style="display:none">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Local</h3>
+
+                <% if (user.local.email) { %>
+                    <p>
+                        <strong>id</strong>: <%= user._id %><br>
+                        <strong>email</strong>: <%= user.local.email %><br>
+                        <strong>password</strong>: <%= user.local.password %>
+                    </p>
+
+                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <% } else { %>
+                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <% } %>
+
+            </div>
+        </div>
+        <div class="list">
+          <h1>Queue your Favorite Movies</h1><br>
+          <ul class="movieList">
+          <% for(var i=0; i<movies.length; i++) {%>
+            <li class="message">
+              <img class="album-covers"src="<%=movies[i].src%>">
+              <span class="albumName"><%= movies[i].movieTitle %></span><br><br>
+              <span class="artist"><%= movies[i].director %></span>
+              <br><br>
+              <button class='save'>Add Next</span>
+                <span class="link"style='display:none'><%=movies[i].src%></span>
+            </li>
+          <% } %>
+          </ul>
+        </div>
+        <div>
+          <!-- <img src="shop.png"> -->
+          <h1 id="savedTitle">Your Saved Movies
+          </h1><br>
+          <ol class="savedMusic queue">
+          <% for(var i=0; i<savedmovies.length; i++) {%>
+            <li class="movieList">
+              <div style="display:none"><%= savedmovies[i]._id %></div>
+
+              <span class="savedAlbum"><%= savedmovies[i].movieTitle %></span> by 
+              <span class="savedArtist"><%= savedmovies[i].director%></span>
+              <p></p>
+              <img class="savedCover" src="<%=savedmovies[i].moviePoster%>" alt="" >  
+              <br>    
+              <button class="deleteSaved">remove</button><br><br>
+            </li>
+          <% } %>
+          </ol>
+        </div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

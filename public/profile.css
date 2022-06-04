@@ -1,0 +1,97 @@
+body{
+    background-color:rgb(36, 36, 36);
+    color:white;
+    padding:20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logout:hover{
+    color:red;
+}
+
+header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:10px;
+    color:white;
+    height: 40px;
+}
+
+h2{
+    color:red;
+    font-weight:900;
+}
+
+header a{
+    color:white;
+    text-decoration: none;
+}
+
+.list ul {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width:95%;
+    list-style: none;
+    margin:auto;
+    height:500px;
+    margin-left: -2%;
+
+}
+.list li{
+    margin:15px;
+}
+
+.list img{
+    width:100%;
+    padding:10px;
+}
+
+
+.artist{
+    font-style: italic;
+}
+
+.save{
+    background:rgb(255, 0, 0);
+    color:rgb(255, 255, 255);
+    border:none;
+    padding:10px;
+    font-weight:900;
+}
+
+.save:hover, li:hover, .deleteSaved:hover{
+    transform: scale(1.2);
+}
+
+.save:active, .deleteSaved:active{
+    opacity: calc(.5);
+}
+
+.queue{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.queue img{
+    width:90%;
+    padding:10px;
+}
+
+
+.deleteSaved{
+    background: black;
+    color:white;
+    padding:10px;
+    border:none
+}
+
+.queue .savedAlbum{
+    font-weight:900;
+}
+
+.queue .savedArtist{
+    font-style: italic;
+}
